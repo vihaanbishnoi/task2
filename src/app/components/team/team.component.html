@@ -2,7 +2,7 @@
   <div class="container">
     <h2 style="text-align: center;">Team Members</h2>
     
-    <!-- Control buttons -->
+
     <div class="mb-3 text-center">
       <button class="btn btn-primary" (click)="toggleEdit()">
         {{ editMode ? 'Cancel' : 'Edit Team' }}
@@ -15,7 +15,7 @@
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
       <div class="col" *ngFor="let member of teamMembers; let i = index">
         <div class="card shadow-sm">
-          <!-- Image placeholder or actual image -->
+
           <div *ngIf="!editMode && !member.image" class="bd-placeholder-img card-img-top" style="height: 225px; background-color: #55595c; display: flex; align-items: center; justify-content: center;">
             <span style="color: #eceeef;">{{ member.name || 'Photo' }}</span>
           </div>
@@ -27,15 +27,15 @@
             <h5 *ngIf="!editMode" class="card-title">{{ member.name }}</h5>
             <input *ngIf="editMode" [(ngModel)]="member.name" class="form-control mb-2" placeholder="Name">
             
-            <!-- Position -->
+
             <h6 *ngIf="!editMode" class="card-subtitle mb-2 text-muted">{{ member.position }}</h6>
             <input *ngIf="editMode" [(ngModel)]="member.position" class="form-control mb-2" placeholder="Position">
             
-            <!-- Description -->
+
             <p *ngIf="!editMode" class="card-text">{{ member.description }}</p>
             <textarea *ngIf="editMode" [(ngModel)]="member.description" class="form-control mb-2" placeholder="Description" rows="3"></textarea>
             
-            <!-- Contact info -->
+
             <div *ngIf="!editMode && (member.email || member.phone)" class="mb-2">
               <small class="text-muted d-block" *ngIf="member.email">{{ member.email }}</small>
               <small class="text-muted d-block" *ngIf="member.phone">{{ member.phone }}</small>

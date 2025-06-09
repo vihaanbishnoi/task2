@@ -1,5 +1,5 @@
 <main>
-  <!-- Hero Section - Static -->
+
   <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-body-tertiary">
     <div class="col-md-6 p-lg-5 mx-auto my-5">
       <h1 class="display-3 fw-bold">Innovative Solutions for Tomorrow</h1>
@@ -11,7 +11,7 @@
     <div class="product-device product-device-2 shadow-sm d-none d-md-block"></div>
   </div>
 
-  <!-- Control buttons -->
+
   <div class="container mb-4">
     <div class="text-center">
       <button class="btn btn-primary" (click)="toggleEdit()">
@@ -23,7 +23,7 @@
     </div>
   </div>
 
-  <!-- Products Section -->
+
   <div class="container-fluid">
     <div class="row" *ngFor="let pair of products | slice:0:products.length; let i = index">
       <ng-container *ngIf="i % 2 === 0">
@@ -59,7 +59,7 @@
             <div class="bg-body shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>
           </div>
           
-          <!-- Second Product in Pair -->
+          
           <div *ngIf="products[i + 1]" [ngClass]="products[i + 1].style + ' me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden'">
             <div class="my-3 py-3">
               <h2 *ngIf="!editMode" class="display-5">{{ products[i + 1].title }}</h2>

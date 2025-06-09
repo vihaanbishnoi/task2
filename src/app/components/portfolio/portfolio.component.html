@@ -1,5 +1,5 @@
 <main>
-  <!-- Control buttons -->
+ 
    <hr>
   <div class="container mb-4">
     <div class="text-center">
@@ -13,13 +13,13 @@
     </div>
   </div>
 
-  <!-- Portfolio Items -->
+
   <div *ngFor="let item of portfolioItems; let i = index">
     <div class="row featurette">
       
-      <!-- Content Column -->
+
       <div [ngClass]="getContentColumnClass(item)">
-        <!-- Title -->
+
         <h2 *ngIf="!editMode" class="featurette-heading fw-normal lh-1">
           {{ item.title }} 
           <span class="text-body-secondary">{{ item.subtitle }}</span>
@@ -32,14 +32,14 @@
           <input [(ngModel)]="item.subtitle" class="form-control" placeholder="Project Subtitle">
         </div>
 
-        <!-- Description -->
+
         <p *ngIf="!editMode" class="lead">{{ item.description }}</p>
         <div *ngIf="editMode" class="mb-3">
           <label class="form-label small">Description:</label>
           <textarea [(ngModel)]="item.description" class="form-control" placeholder="Project Description" rows="3"></textarea>
         </div>
 
-        <!-- Edit Controls -->
+
         <div *ngIf="editMode" class="mb-3">
           <label class="form-label small">Layout:</label>
           <select [(ngModel)]="item.layout" class="form-select form-select-sm mb-2">
@@ -56,7 +56,7 @@
         </div>
       </div>
 
-      <!-- Image Column -->
+
       <div [ngClass]="getImageColumnClass(item)">
         <svg 
           [attr.aria-label]="'Placeholder: ' + item.imagePlaceholder" 
@@ -73,7 +73,7 @@
       </div>
     </div>
 
-    <!-- Divider (except for last item) -->
+
     <hr *ngIf="i < portfolioItems.length - 1" class="featurette-divider">
   </div>
   <hr>

@@ -45,7 +45,7 @@ export class ContactComponent implements OnInit {
   constructor(private http: HttpClient) {}
 
   ngOnInit(): void {
-    // Load contact data from localStorage or JSON file
+
     const stored = localStorage.getItem('contact');
     if (stored) {
       this.contact = JSON.parse(stored);
@@ -56,7 +56,7 @@ export class ContactComponent implements OnInit {
       });
     }
 
-    // Load original contact data for comparison
+
     this.http.get<ContactInfo>('assets/data/contact.json').subscribe(data => {
       this.originalContact = JSON.parse(JSON.stringify(data)); // Deep copy
     });

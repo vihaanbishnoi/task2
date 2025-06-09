@@ -1,5 +1,5 @@
 <div class="container py-5 position-relative border-bottom shadow-sm" style="border-bottom: 2px solid rgba(0,0,0,0.1); box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
-  <!-- Action Buttons - Top Right Corner -->
+
   <div class="position-absolute top-0 end-0 m-3 d-flex flex-wrap gap-2" style="z-index: 10;">
     <button class="btn btn-primary" (click)="toggleEdit()">
       {{ editMode ? 'Cancel' : 'Edit Contact' }}
@@ -8,7 +8,7 @@
     <button *ngIf="hasChangesFromOriginal()" class="btn btn-warning" (click)="revertToOriginal()">Revert to Original</button>
   </div>
 
-  <!-- Page Header -->
+
   <div class="text-center mb-5">
     <h1 *ngIf="!editMode" class="display-4 fw-bold text-primary">{{ contact.pageTitle }}</h1>
     <input *ngIf="editMode" [(ngModel)]="contact.pageTitle" class="form-control form-control-lg text-center mb-3" placeholder="Page Title" />
@@ -17,7 +17,7 @@
     <textarea *ngIf="editMode" [(ngModel)]="contact.pageSubtitle" class="form-control text-center" rows="2" placeholder="Page Subtitle"></textarea>
   </div>
 
-  <!-- Contact Card -->
+
   <div class="row justify-content-center">
     <div class="col-md-8">
       <div class="card shadow-sm">

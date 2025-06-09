@@ -1,8 +1,8 @@
-<!--they said to use milestone.model.ts and milestone.service.ts-->
+
 <div class="container px-4 py-5" id="custom-cards">
   <h2 class="pb-2 border-bottom">Our Milestones</h2>
 
-  <!-- 🔹 Add New Milestone -->
+ 
   <div class="mb-4">
     <input [(ngModel)]="newMilestone.title" placeholder="Title" class="form-control mb-2" />
     <input [(ngModel)]="newMilestone.location" placeholder="Location" class="form-control mb-2" />
@@ -13,14 +13,13 @@
 
   </div>
 
-  <!-- 🔹 Show Existing -->
   <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
     <div class="col" *ngFor="let milestone of milestones; let i = index">
       <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg"
            [style.background-image]="'url(' + milestone.image + ')'">
         <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
 
-          <!-- Editable or Static View -->
+          
           <div *ngIf="editingIndex === i; else displayMode">
             <input [(ngModel)]="milestone.title" class="form-control mb-2" />
             <input [(ngModel)]="milestone.location" class="form-control mb-2" />

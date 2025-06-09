@@ -33,15 +33,15 @@ export class PortfolioComponent implements OnInit {
   }
 
   loadPortfolio(): void {
-    // Check if portfolio exists in localStorage
+
     const storedPortfolio = localStorage.getItem('portfolio');
     
     if (storedPortfolio) {
-      // Load from localStorage
+
       const data = JSON.parse(storedPortfolio);
       this.portfolioItems = data.portfolioItems || [];
     } else {
-      // Load from JSON file
+
       this.http.get<PortfolioData>('assets/data/portfolio.json').subscribe({
         next: (data) => {
           this.portfolioItems = data.portfolioItems || [];
@@ -50,13 +50,13 @@ export class PortfolioComponent implements OnInit {
         error: (error) => {
           console.error('Error loading portfolio from JSON file:', error);
           console.log('Make sure assets/data/portfolio.json exists with the correct structure');
-          // Fallback to empty array if JSON loading fails
+
           this.portfolioItems = [];
         }
       });
     }
 
-    // Always load original portfolio from JSON for reset functionality
+
     this.http.get<PortfolioData>('assets/data/portfolio.json').subscribe({
       next: (data) => {
         this.originalPortfolioItems = data.portfolioItems || [];

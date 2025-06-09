@@ -33,8 +33,6 @@ export class ServicesComponent implements OnInit {
         localStorage.setItem('services', JSON.stringify(data));
       });
     }
-
-    // Load original services for comparison
     this.http.get<Service[]>('assets/data/services.json').subscribe(data => {
       this.originalServices = data;
     });
