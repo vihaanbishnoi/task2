@@ -1,0 +1,25 @@
+{
+  "portfolioItems": [
+    {
+      "title": "Next-Gen Retail Platform",
+      "subtitle": "Revolutionizing E-commerce",
+      "description": "We partnered with leading retailers to deliver a seamless, omnichannel shopping experience, increasing conversion rates by 40%.",
+      "layout": "image-right",
+      "imagePlaceholder": "500x500"
+    },
+    {
+      "title": "Healthcare Data Platform",
+      "subtitle": "Secure & Compliant",
+      "description": "A HIPAA-compliant data platform empowering hospitals to manage patient records securely and efficiently.",
+      "layout": "image-left",
+      "imagePlaceholder": "500x500"
+    },
+    {
+      "title": "FinTech API Suite",
+      "subtitle": "Empowering Innovation",
+      "description": "Our secure API suite enables banks and startups to launch new financial products in record time.",
+      "layout": "image-right",
+      "imagePlaceholder": "500x500"
+    }
+  ]
+}

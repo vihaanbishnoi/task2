@@ -1,0 +1,21 @@
+[
+  {
+    "title": "Founded & First Product Launch",
+    "location": "Silicon Valley",
+    "year": "2015",
+    "image": "assets/images/unsplash-photo-1.jpg"
+  },
+  {
+    "title": "Reached 1 Million Users",
+    "location": "Global",
+    "year": "2018",
+    "image": "assets/images/unsplash-photo-2.jpg"
+  },
+  {
+    "title": "IPO & Expansion",
+    "location": "New York Stock Exchange",
+    "year": "2023",
+    "image": "assets/images/unsplash-photo-3.jpg"
+  }
+]
+

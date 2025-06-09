@@ -1,1 +1,54 @@
-<p>milestones works!</p>
+<!--they said to use milestone.model.ts and milestone.service.ts-->
+<div class="container px-4 py-5" id="custom-cards">
+  <h2 class="pb-2 border-bottom">Our Milestones</h2>
+
+  <!-- 🔹 Add New Milestone -->
+  <div class="mb-4">
+    <input [(ngModel)]="newMilestone.title" placeholder="Title" class="form-control mb-2" />
+    <input [(ngModel)]="newMilestone.location" placeholder="Location" class="form-control mb-2" />
+    <input [(ngModel)]="newMilestone.year" placeholder="Year" class="form-control mb-2" />
+    <input [(ngModel)]="newMilestone.image" placeholder="Image URL or filename" class="form-control mb-2" />
+    <button (click)="addMilestone()" class="btn btn-success">Add Milestone</button>
+    <button class="btn btn-success ms-2" (click)="revertToOriginal()">Revert to Original Data</button>
+
+  </div>
+
+  <!-- 🔹 Show Existing -->
+  <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
+    <div class="col" *ngFor="let milestone of milestones; let i = index">
+      <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg"
+           [style.background-image]="'url(' + milestone.image + ')'">
+        <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
+
+          <!-- Editable or Static View -->
+          <div *ngIf="editingIndex === i; else displayMode">
+            <input [(ngModel)]="milestone.title" class="form-control mb-2" />
+            <input [(ngModel)]="milestone.location" class="form-control mb-2" />
+            <input [(ngModel)]="milestone.year" class="form-control mb-2" />
+            <input [(ngModel)]="milestone.image" class="form-control mb-2" />
+            <button (click)="saveEdit(i)" class="btn btn-primary btn-sm me-2">Save</button>
+          </div>
+
+          <ng-template #displayMode>
+            <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">{{ milestone.title }}</h3>
+            <ul class="d-flex list-unstyled mt-auto">
+              <li class="me-auto">
+                <img src="https://github.com/twbs.png" alt="TechCo" width="32" height="32"
+                     class="rounded-circle border border-white" />
+              </li>
+              <li class="d-flex align-items-center me-3">
+                <small>{{ milestone.location }}</small>
+              </li>
+              <li class="d-flex align-items-center">
+                <small>{{ milestone.year }}</small>
+              </li>
+            </ul>
+            <button (click)="startEdit(i)" class="btn btn-warning btn-sm me-2 mt-2">Edit</button>
+          </ng-template>
+
+          <button (click)="deleteMilestone(i)" class="btn btn-danger btn-sm mt-2">Delete</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

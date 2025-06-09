@@ -1,1 +1,80 @@
-<p>portfolio works!</p>
+<main>
+  <!-- Control buttons -->
+   <hr>
+  <div class="container mb-4">
+    <div class="text-center">
+      <h2 class="txt">Portfolio</h2>
+      <button class="btn btn-primary" (click)="toggleEdit()">
+        {{ editMode ? 'Cancel Edit' : 'Edit Portfolio' }}
+      </button>
+      <button *ngIf="editMode" class="btn btn-success ms-2" (click)="savePortfolio()">Save Changes</button>
+      <button class="btn btn-warning ms-2" (click)="resetPortfolio()">Reset to Original</button>
+      <button *ngIf="editMode" class="btn btn-info ms-2" (click)="addPortfolioItem()">Add New Project</button>
+    </div>
+  </div>
+
+  <!-- Portfolio Items -->
+  <div *ngFor="let item of portfolioItems; let i = index">
+    <div class="row featurette">
+      
+      <!-- Content Column -->
+      <div [ngClass]="getContentColumnClass(item)">
+        <!-- Title -->
+        <h2 *ngIf="!editMode" class="featurette-heading fw-normal lh-1">
+          {{ item.title }} 
+          <span class="text-body-secondary">{{ item.subtitle }}</span>
+        </h2>
+        
+        <div *ngIf="editMode" class="mb-3">
+          <label class="form-label small">Project Title:</label>
+          <input [(ngModel)]="item.title" class="form-control mb-2" placeholder="Project Title">
+          <label class="form-label small">Subtitle:</label>
+          <input [(ngModel)]="item.subtitle" class="form-control" placeholder="Project Subtitle">
+        </div>
+
+        <!-- Description -->
+        <p *ngIf="!editMode" class="lead">{{ item.description }}</p>
+        <div *ngIf="editMode" class="mb-3">
+          <label class="form-label small">Description:</label>
+          <textarea [(ngModel)]="item.description" class="form-control" placeholder="Project Description" rows="3"></textarea>
+        </div>
+
+        <!-- Edit Controls -->
+        <div *ngIf="editMode" class="mb-3">
+          <label class="form-label small">Layout:</label>
+          <select [(ngModel)]="item.layout" class="form-select form-select-sm mb-2">
+            <option value="image-right">Image on Right</option>
+            <option value="image-left">Image on Left</option>
+          </select>
+          
+          <label class="form-label small">Image Placeholder Text:</label>
+          <input [(ngModel)]="item.imagePlaceholder" class="form-control mb-2" placeholder="e.g., 500x500">
+          
+          <button class="btn btn-sm btn-danger" (click)="deletePortfolioItem(i)">
+            Delete Project
+          </button>
+        </div>
+      </div>
+
+      <!-- Image Column -->
+      <div [ngClass]="getImageColumnClass(item)">
+        <svg 
+          [attr.aria-label]="'Placeholder: ' + item.imagePlaceholder" 
+          class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" 
+          width="500" 
+          height="500" 
+          preserveAspectRatio="xMidYMid slice" 
+          role="img" 
+          xmlns="http://www.w3.org/2000/svg">
+          <title>Placeholder</title>
+          <rect width="100%" height="100%" fill="var(--bs-secondary-bg)"></rect>
+          <text x="50%" y="50%" fill="var(--bs-secondary-color)" dy=".3em">{{ item.imagePlaceholder }}</text>
+        </svg>
+      </div>
+    </div>
+
+    <!-- Divider (except for last item) -->
+    <hr *ngIf="i < portfolioItems.length - 1" class="featurette-divider">
+  </div>
+  <hr>
+</main>

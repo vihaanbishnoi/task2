@@ -1,0 +1,12 @@
+[
+  {
+    "name": "Alice Sharma",
+    "role": "UI/UX Designer",
+    "description": "Specializes in user-centered design."
+  },
+  {
+    "name": "Rohit Gupta",
+    "role": "Backend Developer",
+    "description": "Handles server-side logic and databases."
+  }
+]

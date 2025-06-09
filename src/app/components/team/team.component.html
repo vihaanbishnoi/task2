@@ -1,1 +1,59 @@
-<p>team works!</p>
+<div class="album py-5 bg-body-tertiary">
+  <div class="container">
+    <h2 style="text-align: center;">Team Members</h2>
+    
+    <!-- Control buttons -->
+    <div class="mb-3 text-center">
+      <button class="btn btn-primary" (click)="toggleEdit()">
+        {{ editMode ? 'Cancel' : 'Edit Team' }}
+      </button>
+      <button *ngIf="editMode" class="btn btn-success ms-2" (click)="updateTeam()">Save</button>
+      <button class="btn btn-warning ms-2" (click)="resetToOriginal()">Revert to Original</button>
+      <button *ngIf="editMode" class="btn btn-info ms-2" (click)="addTeamMember()">Add Member</button>
+    </div>
+
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+      <div class="col" *ngFor="let member of teamMembers; let i = index">
+        <div class="card shadow-sm">
+          <!-- Image placeholder or actual image -->
+          <div *ngIf="!editMode && !member.image" class="bd-placeholder-img card-img-top" style="height: 225px; background-color: #55595c; display: flex; align-items: center; justify-content: center;">
+            <span style="color: #eceeef;">{{ member.name || 'Photo' }}</span>
+          </div>
+          <img *ngIf="!editMode && member.image" [src]="member.image" class="card-img-top" style="height: 225px; object-fit: cover;" [alt]="member.name">
+          <input *ngIf="editMode" [(ngModel)]="member.image" class="form-control m-2" placeholder="Image URL (optional)">
+          
+          <div class="card-body">
+            <!-- Name -->
+            <h5 *ngIf="!editMode" class="card-title">{{ member.name }}</h5>
+            <input *ngIf="editMode" [(ngModel)]="member.name" class="form-control mb-2" placeholder="Name">
+            
+            <!-- Position -->
+            <h6 *ngIf="!editMode" class="card-subtitle mb-2 text-muted">{{ member.position }}</h6>
+            <input *ngIf="editMode" [(ngModel)]="member.position" class="form-control mb-2" placeholder="Position">
+            
+            <!-- Description -->
+            <p *ngIf="!editMode" class="card-text">{{ member.description }}</p>
+            <textarea *ngIf="editMode" [(ngModel)]="member.description" class="form-control mb-2" placeholder="Description" rows="3"></textarea>
+            
+            <!-- Contact info -->
+            <div *ngIf="!editMode && (member.email || member.phone)" class="mb-2">
+              <small class="text-muted d-block" *ngIf="member.email">{{ member.email }}</small>
+              <small class="text-muted d-block" *ngIf="member.phone">{{ member.phone }}</small>
+            </div>
+            <input *ngIf="editMode" [(ngModel)]="member.email" class="form-control mb-2" placeholder="Email (optional)">
+            <input *ngIf="editMode" [(ngModel)]="member.phone" class="form-control mb-2" placeholder="Phone (optional)">
+            
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="btn-group" *ngIf="!editMode">
+                <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                <button type="button" class="btn btn-sm btn-outline-secondary">Contact</button>
+              </div>
+              <button *ngIf="editMode" class="btn btn-sm btn-danger" (click)="deleteTeamMember(i)">Delete</button>
+              <small class="text-body-secondary">{{ member.experience || 'Team Member' }}</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

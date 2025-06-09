@@ -1,0 +1,60 @@
+{
+  "heroSection": {
+    "title": "Innovative Solutions for Tomorrow",
+    "subtitle": "Empowering your business with cutting-edge technology",
+    "link1Text": "Discover More",
+    "link1": "#",
+    "link2Text": "Get Started",
+    "link2": "#"
+  },
+  "products": [
+    {
+      "title": "Cloud Platform",
+      "description": "Scale your business with secure and reliable cloud infrastructure.",
+      "bgClass": "text-bg-dark",
+      "cardClass": "bg-body-tertiary"
+    },
+    {
+      "title": "AI Solutions",
+      "description": "Unlock insights and automation with advanced artificial intelligence tools.",
+      "bgClass": "bg-body-tertiary",
+      "cardClass": "bg-dark"
+    },
+    {
+      "title": "Cybersecurity",
+      "description": "Protect your data and assets with our comprehensive security solutions.",
+      "bgClass": "bg-body-tertiary",
+      "cardClass": "bg-dark"
+    },
+    {
+      "title": "Collaboration Tools",
+      "description": "Enhance productivity with seamless communication and teamwork platforms.",
+      "bgClass": "text-bg-primary",
+      "cardClass": "bg-body-tertiary"
+    },
+    {
+      "title": "IoT Solutions",
+      "description": "Connect and manage devices effortlessly with our IoT platform.",
+      "bgClass": "bg-body-tertiary",
+      "cardClass": "bg-body"
+    },
+    {
+      "title": "Data Analytics",
+      "description": "Transform raw data into actionable insights for smarter decisions.",
+      "bgClass": "bg-body-tertiary",
+      "cardClass": "bg-body"
+    },
+    {
+      "title": "Mobile Solutions",
+      "description": "Engage your customers with intuitive and powerful mobile applications.",
+      "bgClass": "bg-body-tertiary",
+      "cardClass": "bg-body"
+    },
+    {
+      "title": "Developer APIs",
+      "description": "Build, integrate, and innovate with our robust API ecosystem.",
+      "bgClass": "bg-body-tertiary",
+      "cardClass": "bg-body"
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+[
+  {
+    "title": "Web Development",
+    "description": "We build scalable and performant web applications.",
+    "link": "#",
+    "icon": "collection"
+  },
+  {
+    "title": "Consulting",
+    "description": "Expert advice to help you navigate technology decisions.",
+    "link": "#",
+    "icon": "people-circle"
+  },
+  {
+    "title": "Cloud Solutions",
+    "description": "Deploy and manage cloud infrastructure with us.",
+    "link": "#",
+    "icon": "toggles2"
+  }
+]
+

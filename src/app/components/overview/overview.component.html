@@ -1,1 +1,32 @@
-<p>overview works!</p>
+<div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg position-relative">
+  <!-- Edit Button - Top Right Corner -->
+  <button class="btn btn-primary position-absolute top-0 end-0 m-3" (click)="toggleEdit()" style="z-index: 10; width: auto;">
+    {{ editMode ? 'Cancel' : 'Edit' }}
+  </button>
+
+  <div class="col-lg-7 p-3 p-lg-5 pt-lg-3">
+    <h1 *ngIf="!editMode">{{ overview.heading }}</h1>
+    <input *ngIf="editMode" [(ngModel)]="overview.heading" class="form-control mb-3" placeholder="Enter heading" />
+
+    <p *ngIf="!editMode">{{ overview.paragraph1 }}</p>
+    <textarea *ngIf="editMode" [(ngModel)]="overview.paragraph1" class="form-control mb-3" rows="3" placeholder="Enter first paragraph"></textarea>
+
+    <p *ngIf="!editMode">{{ overview.paragraph2 }}</p>
+    <textarea *ngIf="editMode" [(ngModel)]="overview.paragraph2" class="form-control mb-3" rows="3" placeholder="Enter second paragraph"></textarea>
+
+    <!-- Save Button (only visible in edit mode) - positioned below content -->
+    <button *ngIf="editMode" class="btn btn-success me-2" (click)="updateOverview()">
+      <i class="fas fa-save me-1"></i>Save Changes
+    </button>
+    
+    <!-- Revert Button (only visible when there are changes from original) -->
+    <button *ngIf="hasChangesFromOriginal()" class="btn btn-warning" (click)="revertToOriginal()">
+      <i class="fas fa-undo me-1"></i>Revert to Original
+    </button>
+  </div>
+
+  <div class="col-lg-4 offset-lg-1 p-0 overflow-hidden shadow-lg">
+    <img [src]="overview.image" alt="Overview Image" width="720" class="rounded-lg-3" *ngIf="!editMode">
+    <input *ngIf="editMode" [(ngModel)]="overview.image" class="form-control" placeholder="Image URL" />
+  </div>
+</div>

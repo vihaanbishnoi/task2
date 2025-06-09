@@ -1,1 +1,41 @@
-<p>services works!</p>
+<div class="container px-4 py-5 position-relative shadow-section" id="featured-3">
+
+
+  <!-- Action Buttons - Top Right Corner -->
+  <div class="position-absolute top-0 end-0 m-3 d-flex flex-wrap gap-2" style="z-index: 10;">
+    <button class="btn btn-primary" (click)="toggleEdit()">
+      {{ editMode ? 'Cancel' : 'Edit Services' }}
+    </button>
+    <button *ngIf="editMode" class="btn btn-success" (click)="updateServices()">Save</button>
+    <button *ngIf="hasChangesFromOriginal()" class="btn btn-warning" (click)="resetToOriginal()">Revert to Original</button>
+    <button *ngIf="editMode" class="btn btn-info" (click)="addService()">Add Service</button>
+  </div>
+
+  <h2 class="pb-2 border-bottom">Services</h2>
+
+  <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
+    <div class="feature col" *ngFor="let service of services; let i = index">
+      <div class="feature-icon d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-2 mb-3">
+        <svg class="bi" width="1em" height="1em" aria-hidden="true">
+          <use [attr.xlink:href]="'#' + service.icon"></use>
+        </svg>
+      </div>
+
+      <h3 *ngIf="!editMode" class="fs-2 text-body-emphasis">{{ service.title }}</h3>
+      <input *ngIf="editMode" [(ngModel)]="service.title" class="form-control mb-2" placeholder="Service Title" />
+
+      <p *ngIf="!editMode">{{ service.description }}</p>
+      <textarea *ngIf="editMode" [(ngModel)]="service.description" class="form-control mb-2" placeholder="Service Description"></textarea>
+
+      <a *ngIf="!editMode" [href]="service.link" class="icon-link">
+        Call to action
+        <svg class="bi" aria-hidden="true"><use xlink:href="#chevron-right"></use></svg>
+      </a>
+      <input *ngIf="editMode" [(ngModel)]="service.link" class="form-control mb-2" placeholder="Link URL" />
+
+      <button *ngIf="editMode" class="btn btn-sm btn-danger" (click)="deleteService(i)">Delete</button>
+    </div>
+  </div>
+</div>
+<hr>
+<!--Make the border better-->
